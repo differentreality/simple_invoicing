@@ -1,0 +1,37 @@
+%h1 Listing items
+
+%table
+  %thead
+    %tr
+      %th Κατηγορία
+      %th Υποκατηγορία
+      %th Ονομασία
+      %th Περιγραφή
+      %th Απόθεμα
+      %th Κωδικός
+      %th Barcode
+      %th Τιμή
+      %th Προμηθευτής
+      %th
+      %th
+      %th
+
+  %tbody
+    - @items.each do |item|
+      %tr
+        %td= item.category
+        %td= item.subcategory
+        %td= item.name
+        %td= item.description
+        %td= item.stock
+        %td= item.code
+        %td= item.barcode
+        %td= item.price
+        %td= item.supplier
+        %td= link_to 'Πληροφορίες', item
+        %td= link_to 'Επεξεργασία', edit_item_path(item)
+        %td= link_to 'Διαγραφή', item, method: :delete, data: { confirm: 'Είστε Σίγουρος;' }
+
+%br
+
+= link_to 'Νέο Προϊόν', new_item_path

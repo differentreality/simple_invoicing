@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b Ονομασία:
+  = @tractor.name
+%p
+  %b Πινακίδες:
+  = @tractor.plates
+%p
+  %b Πρώτη Άδεια:
+  = @tractor.dob
+%p
+  %b Τελευταίο Service:
+  = @tractor.lastservice
+%p
+  %b Ώρες Φίλτρων:
+  = @tractor.filterhours
+%p
+  %b Ώρες Λαδιών:
+  = @tractor.oilhours
+%p
+  %b Ώρες Εργασίας:
+  = @tractor.twh
+
+= link_to 'Επεξεργασία', edit_tractor_path(@tractor)
+= link_to 'Διαγραφή', tractor, method: :delete, data: { confirm: 'Είστε Σίγουρος?' }
+= link_to 'Πίσω', tractors_path

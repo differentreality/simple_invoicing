@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :payments
+  resources :machineries
+  resources :tractors
+  resources :items
+  resources :customers
+  resources :invoices
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks',
                                     registrations: :registrations, sessions: :sessions, confirmations: 'confirmations'
@@ -18,7 +24,7 @@ Rails.application.routes.draw do
     end
   end
   #-- End of Admin
-
+  get 'creatives/index'
   get 'contact' => 'home#contact'
   post 'contact' => 'home#contact'
   get 'recommend' => 'home#recommend'

@@ -1,0 +1,27 @@
+%h1 Λίστα Πληρωμών
+
+%table
+  %thead
+    %tr
+      %th Ποσό
+      %th Ημερομηνία
+      %th Συναλλασόμενος
+      %th Περιγραφή
+      %th
+      %th
+      %th
+
+  %tbody
+    - @payments.each do |payment|
+      %tr
+        %td= payment.amount
+        %td= payment.date
+        %td= payment.user_id
+        %td= payment.description
+        %td= link_to 'Πληροφορίες', payment
+        %td= link_to 'Επεξεργασία', edit_payment_path(payment)
+        %td= link_to 'Διαγραφή', payment, method: :delete, data: { confirm: 'Είστε σίγουρος;' }
+
+%br
+
+= link_to 'Νέα Πληρωμή', new_payment_path

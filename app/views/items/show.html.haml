@@ -1,0 +1,33 @@
+%p#notice= notice
+
+%p
+  %b Κατηγορία:
+  = @item.category
+%p
+  %b Υποκατηγορία:
+  = @item.subcategory
+%p
+  %b Ονομασία:
+  = @item.name
+%p
+  %b Περιγραφή:
+  = @item.description
+%p
+  %b Απόθεμα:
+  = @item.stock
+%p
+  %b Κωδικός:
+  = @item.code
+%p
+  %b Barcode:
+  = @item.barcode
+%p
+  %b Τιμή:
+  = @item.price
+%p
+  %b Προμηθευτής:
+  = @item.supplier
+
+= link_to 'Επεξεργασία', edit_item_path(@item)
+\|
+= link_to 'Πίσω', items_path
